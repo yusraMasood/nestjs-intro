@@ -1,0 +1,32 @@
+
+
+@baseUrl = http://localhost:3000
+@contentType = application/json
+
+### Create a new task
+POST {{baseUrl}}/tasks
+Content-Type: {{contentType}}
+
+{
+  "title": "cmlcc",
+  "description": "mmm",
+  "status": "OPEN"
+}
+
+### Get all tasks
+GET {{baseUrl}}/tasks
+
+### Get a task by ID
+GET {{baseUrl}}/tasks/a3e41de5-d052-42a0-809c-d8af402c60ff
+
+### update status
+PATCH {{baseUrl}}/tasks/5965685b-3037-4b22-a3f0-cb086a1f/status
+Content-Type: {{contentType}}
+
+{
+  "status": "DONE"
+}
+ 
+//e81a027d-7cdb-4ddc-9948-6946ddd1dde0
+### delete tasks
+DELETE {{baseUrl}}/tasks/0f20cc7d-ae6a-4b60-a8a6-eee4204c9a17
