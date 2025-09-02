@@ -8,7 +8,26 @@
 GET {{baseUrl}}
 
 ### Get all tasks
+# @name getAllTasks
+GET {{baseUrl}}/tasks?search=evolving
+
+### Get all tasks by status
+# @name getAllInProgress
 GET {{baseUrl}}/tasks
+
+
+### Get all tasks by label
+# @name getAllTasksByLabel
+GET {{baseUrl}}/tasks?labels=urgent,bags
+
+### Get all tasks by sort order
+# @name getAllTasksSorting
+GET {{baseUrl}}/tasks?sortBy=title&sortOrder=DESC
+
+### Get all tasks by status
+# @name getAllInProgress
+
+GET {{baseUrl}}/tasks?status=IN_PROGRESS
 
 ### Create a new task
 # @name createTask
@@ -16,11 +35,10 @@ POST {{baseUrl}}/tasks
 Content-Type: {{contentType}}
 
 {
-  "title": "Learn evolving",
-  "description": "beautiful",
-  "status": "OPEN",
-  "userId":"60ec1030-415f-4ff5-99b8-e72be99a3645",
-  "labels":[{"name":"urgent"},{"name":"bags"},{"name":"hello"}]
+  "title": "new",
+  "description": "new",
+  "status": "DONE",
+  "userId":"60ec1030-415f-4ff5-99b8-e72be99a3645"
 }
 
 ### Set the task ID
