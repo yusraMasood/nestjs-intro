@@ -3,30 +3,68 @@
 @baseUrl = http://localhost:3000
 @contentType = application/json
 
-### Create a new task
-POST {{baseUrl}}/tasks
-Content-Type: {{contentType}}
+###GET APP MESSAGE
 
-{
-  "title": "cmlcc",
-  "description": "mmm",
-  "status": "OPEN"
-}
+GET {{baseUrl}}
 
 ### Get all tasks
 GET {{baseUrl}}/tasks
 
-### Get a task by ID
-GET {{baseUrl}}/tasks/a3e41de5-d052-42a0-809c-d8af402c60ff
-
-### update status
-PATCH {{baseUrl}}/tasks/5965685b-3037-4b22-a3f0-cb086a1f/status
+### Create a new task
+# @name createTask
+POST {{baseUrl}}/tasks
 Content-Type: {{contentType}}
 
 {
-  "status": "DONE"
+  "title": "Learn evolving",
+  "description": "beautiful",
+  "status": "OPEN",
+  "userId":"60ec1030-415f-4ff5-99b8-e72be99a3645",
+  "labels":[{"name":"urgent"},{"name":"bags"},{"name":"hello"}]
+}
+
+### Set the task ID
+@taskId={{createTask.response.body.id}}
+
+### Get a task by ID
+GET {{baseUrl}}/tasks/{{taskId}}
+
+### update status
+PATCH {{baseUrl}}/tasks/{{taskId}}
+Content-Type: {{contentType}}
+
+{
+  "title":"get",
+  "description":"no",
+  "status": "DONE",
+  "labels":[{
+    "id":"a37ea7b8-69f8-42b2-b1be-7754c07d39c6",
+  "name":"urgentlyNest"
+  }]
 }
  
-//e81a027d-7cdb-4ddc-9948-6946ddd1dde0
 ### delete tasks
-DELETE {{baseUrl}}/tasks/0f20cc7d-ae6a-4b60-a8a6-eee4204c9a17
+DELETE {{baseUrl}}/tasks/{{taskId}}
+
+
+### add specif label to task
+# @name addLabels
+POST {{baseUrl}}/tasks/{{taskId}}/labels
+Content-Type: {{contentType}}
+
+[
+  {
+    "name": "apRIRITI"
+  },
+  {
+    "name": "HELLO"
+  }
+]
+
+### Remove specific labels from task 
+# @name removeLabels
+DELETE {{baseUrl}}/tasks/{{taskId}}/labels
+Content-Type: {{contentType}}
+
+ ["hello"]
+
