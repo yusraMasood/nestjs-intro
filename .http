@@ -41,6 +41,27 @@ Content-Type: {{contentType}}
   "userId":"60ec1030-415f-4ff5-99b8-e72be99a3645"
 }
 
+### login user
+# @name loginUser
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email":"yusra@gmail.com",
+  "password":"Admin123@"
+}
+
+### Create a new user
+# @name loginUser
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "name":"yusra",
+  "email":"yusra1@gmail.com",
+  "password":"Admin123@"
+}
+
 ### Set the task ID
 @taskId={{createTask.response.body.id}}
 
