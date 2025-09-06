@@ -7,9 +7,9 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { TaskStatus } from './task.model';
-import { User } from 'src/users/user.entity';
 import { TaskLabel } from './task-label.entity';
+import { TaskStatus } from './task.model';
+import { User } from '../users/user.entity';
 
 @Entity()
 //one to many

@@ -38,7 +38,7 @@ export class AuthService {
     if (!(await this.passwordService.verify(password, user.password))) {
       throw new UnauthorizedException('Invalid Password');
     }
-    return this.generateToken(user);
+    return await this.generateToken(user);
   }
   private async generateToken(user: User): Promise<string> {
     const payload = { sub: user?.id, name: user?.name };
